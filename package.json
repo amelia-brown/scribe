@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch",
+    "start": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -31,8 +33,11 @@
     "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {
+    "angular": "^1.5.8",
     "babel-core": "^6.18.2",
     "babel-preset-angular": "^6.0.15",
+    "ejs": "^2.5.2",
+    "lodash.throttle": "^4.1.1",
     "node-sass": "^3.13.0"
   }
 }

@@ -1,16 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    path.resolve(__dirname, '..', 'src'),
-  ],
-  output: {
-    path: path.resolve(__dirname, '..', 'lib'),
-    publicPath: '/lib/',
-    filename: 'bundle.js',
+  entry: {
+    app: path.resolve(__dirname, 'src', 'app.js'),
+    vendor: ['angular']
   },
+  output: {
+    path: path.resolve(__dirname, 'lib'),
+    publicPath: '/lib/',
+    filename: 'app.bundle.js',
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+  ],
   devtool: 'cheap-eval-source-map',
   module: {
     loaders: [
@@ -35,8 +37,5 @@ module.exports = {
         exclude: /node_modules/,
       }
     ],
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ]
+  }
 }
