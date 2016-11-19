@@ -1,7 +1,6 @@
 <div class="container">
   <p>Search: </p>
   <input ng-model="data.searchString" ng-change="search()" />
-  <p id="added"></p>
   <ul>
     <li ng-repeat="item in data.results.data.items track by $index" ng-model="item">
       <img src={{item.snippet.thumbnails.medium.url}}></img>

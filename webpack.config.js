@@ -31,11 +31,15 @@ module.exports = {
         loader:'json-loader',
       },
       {
+        test: /\.html$/,
+        loader:'raw',
+      },
+      {
         test: /\.(jpg|png)$/,
         loader: 'file',
         include: path.resolve(__dirname, 'client/images'),
         exclude: /node_modules/,
       }
     ],
-  }
+  },
 }

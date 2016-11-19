@@ -1,13 +1,15 @@
-angular.module('scribeApp',
-              [ 'scribeApp.services',
-                'scribeApp.apiController',
-                'ngRoute'
-              ])
+import angular from 'angular';
+import uiRouter from 'angular-ui-router';
+import Components from './app/index';
+import template from './app.html';
 
-.config(function ($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: './app/templates/home.html',
-      controller: 'ApiController'
-    })
-})
+let AppComponent = () => ({
+  template,
+  restrict: 'E'
+});
+
+angular.module('scribeApp', [
+  uiRouter,
+  Components.name,
+])
+.directive('app', AppComponent);
